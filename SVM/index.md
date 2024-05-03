@@ -5,8 +5,8 @@ Support Vector Machines (SVMs) are a prominent and robust category of supervised
 This book overview will explore the fundamental concepts of SVMs, their mathematical foundation, practical applications, and strengths and limitations within the broader context of machine learning.
 
 ## Fundamentals of SVMs
-Historical background and development of SVMs
-Basic concepts: hyperplane, margin, support vectors
+[Historical background and development of SVMs](history.md)
+[Basic concepts: hyperplane, margin, support vectors](basic_concept.md)
 Intuition behind SVMs as a binary classifier
 
 [Implementation in python] (/python_svm.md)
