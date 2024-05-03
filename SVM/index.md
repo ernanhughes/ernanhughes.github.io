@@ -4,36 +4,37 @@ Support Vector Machines (SVMs) are a prominent and robust category of supervised
 
 This book overview will explore the fundamental concepts of SVMs, their mathematical foundation, practical applications, and strengths and limitations within the broader context of machine learning.
 
-## Fundamentals of SVMs
-[Historical background and development of SVMs](history.md)
-[Basic concepts: hyperplane, margin, support vectors](basic_concept.md)
-[Intuition behind SVMs as a binary classifier](intuition.md)
+## Fundamentals of SVMs  
+[Historical background and development of SVMs](history.md)  
+[Basic concepts: hyperplane, margin, support vectors](basic_concept.md)  
+[Intuition behind SVMs as a binary classifier](intuition.md)  
 
-[Implementation in python] (/python_svm.md)
+[Implementation in python] (/python_svm.md)  
 
-## Linear SVMs
-[Linear SVM](/linear_svm.md)
-[Formulation of the linear SVM algorithm](formulation_of_linear_svm.md)
-[Optimization objective and mathematical formulation](optimization_objective.md)
-[Understanding the concept of maximizing margin]()
+## Linear SVMs  
+[Linear SVM](/linear_svm.md)  
+[Formulation of the linear SVM algorithm](formulation_of_linear_svm.md)  
+[Optimization objective and mathematical formulation](optimization_objective.md)  
+[Understanding the concept of maximizing margin](maximizing_margin.md)  
 
 ## Kernel Methods
-[Motivation for kernel methods in SVMs](kernal_method.md)
-Introduction to kernel functions (linear, polynomial, Gaussian/RBF)
-[Radial Basis Function (RBF) kernel](rbf_tutorial.md)
-[Non-linear separable data and the need for kernel trick](kernel_trick.md)
+[Motivation for kernel methods in SVMs](kernal_method.md)  
+Introduction to kernel functions (linear, polynomial, Gaussian/RBF)  
+[Radial Basis Function (RBF) kernel](rbf_tutorial.md)  
+[Non-linear separable data and the need for kernel trick](kernel_trick.md)  
 
 
-## Soft Margin SVMs
-Introduction to soft margin SVMs
-Handling non-linearly separable data
-Tuning the regularization parameter (C) for soft margin SVMs
+## Soft Margin SVMs  
+[Introduction to soft margin SVMs](soft_margin.md)  
+[Handling non-linearly separable data](non_linear.md)  
+[Tuning the regularization parameter (C) for soft margin SVMs](tuning.md)  
 
 
 ## Practical Implementation
-Data preprocessing and feature scaling
-Choosing the appropriate kernel and hyperparameters
-Training SVM models using libraries like Scikit-learn
+[Data preprocessing and feature scaling](feature_scaling.md)  
+[Choosing the appropriate kernel and hyperparameters](hyperparameters.md)  
+[Training SVM models using libraries like Scikit-learn](training.md)  
+
 
 ## Evaluation and Validation
 Performance metrics for SVM models (accuracy, precision, recall, F1-score)
