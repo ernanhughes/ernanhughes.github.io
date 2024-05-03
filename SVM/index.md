@@ -8,18 +8,17 @@ This book overview will explore the fundamental concepts of SVMs, their mathemat
 [Historical background and development of SVMs](history.md)  
 [Basic concepts: hyperplane, margin, support vectors](basic_concept.md)  
 [Intuition behind SVMs as a binary classifier](intuition.md)  
-
-[Implementation in python] (/python_svm.md)  
+[Implementation in simple python](python_svm.md)  
 
 ## Linear SVMs  
-[Linear SVM](/linear_svm.md)  
+[Linear SVM](linear_svm.md)  
 [Formulation of the linear SVM algorithm](formulation_of_linear_svm.md)  
 [Optimization objective and mathematical formulation](optimization_objective.md)  
 [Understanding the concept of maximizing margin](maximizing_margin.md)  
 
 ## Kernel Methods
 [Motivation for kernel methods in SVMs](kernal_method.md)  
-Introduction to kernel functions (linear, polynomial, Gaussian/RBF)  
+[Introduction to kernel functions](kernel_functions.md)  
 [Radial Basis Function (RBF) kernel](rbf_tutorial.md)  
 [Non-linear separable data and the need for kernel trick](kernel_trick.md)  
 
@@ -37,15 +36,15 @@ Introduction to kernel functions (linear, polynomial, Gaussian/RBF)
 
 
 ## Evaluation and Validation
-Performance metrics for SVM models (accuracy, precision, recall, F1-score)
-Cross-validation techniques
-Model selection and hyperparameter tuning using grid search or random search
+[Performance metrics for SVM models (accuracy, precision, recall, F1-score)](metrics.md)  
+[Cross-validation techniques](xvalidation.md)  
+[Model selection and hyperparameter tuning using grid search or random](model_selection.md)  
 
 ## Extensions and Advanced Topics
-Multiclass classification with SVMs
-One-class SVM for anomaly detection
-Support vector regression (SVR)
-SVMs in real-world applications (text classification, image recognition, bioinformatics)
+[Multiclass classification with SVMs](multiclass.md)  
+[One-class SVM for anomaly detection](one_class.md)  
+[Support vector regression (SVR)](svr.md)  
+[SVMs in real-world applications (text classification, image recognition, bioinformatics)](real_world.md)  
 
 ## Practical Examples and Case Studies
 Walkthrough of SVM applications in various domains
