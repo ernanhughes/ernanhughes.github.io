@@ -7,19 +7,22 @@ This book overview will explore the fundamental concepts of SVMs, their mathemat
 ## Fundamentals of SVMs
 [Historical background and development of SVMs](history.md)
 [Basic concepts: hyperplane, margin, support vectors](basic_concept.md)
-Intuition behind SVMs as a binary classifier
+[Intuition behind SVMs as a binary classifier](intuition.md)
 
 [Implementation in python] (/python_svm.md)
 
 ## Linear SVMs
-Formulation of the linear SVM algorithm
-Optimization objective and mathematical formulation
-Understanding the concept of maximizing margin
+[Linear SVM](/linear_svm.md)
+[Formulation of the linear SVM algorithm](formulation_of_linear_svm.md)
+[Optimization objective and mathematical formulation](optimization_objective.md)
+[Understanding the concept of maximizing margin]()
 
 ## Kernel Methods
-Motivation for kernel methods in SVMs
+[Motivation for kernel methods in SVMs](kernal_method.md)
 Introduction to kernel functions (linear, polynomial, Gaussian/RBF)
-Non-linear separable data and the need for kernel trick
+[Radial Basis Function (RBF) kernel](rbf_tutorial.md)
+[Non-linear separable data and the need for kernel trick](kernel_trick.md)
+
 
 ## Soft Margin SVMs
 Introduction to soft margin SVMs
