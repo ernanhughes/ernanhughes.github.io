@@ -97,7 +97,7 @@ visualize_svm()
 
 
     
-![png](python_svm_01.png)
+![png](img/python_svm_01.png)
     
 
 
