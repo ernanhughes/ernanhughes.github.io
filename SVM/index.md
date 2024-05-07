@@ -6,6 +6,7 @@ This book overview will explore the fundamental concepts of SVMs, their mathemat
 
 ## Fundamentals of SVMs  
 [Historical background and development of SVMs](history.md)  
+[Advantages of SVM](advantages.md)  
 [Basic concepts: hyperplane, margin, support vectors](basic_concept.md)  
 [Intuition behind SVMs as a binary classifier](intuition.md)  
 [Implementation in simple python](python_svm.md)  
