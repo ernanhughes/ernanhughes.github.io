@@ -1,10 +1,9 @@
 # Chrome AI
 
 
-AI is coming ot the browser locally. Read about it here: [ai built in](https://developer.chrome.com/docs/ai/built-in).
-
+AI is coming to the chrome browser locally.  
+Read about it here: [ai built in](https://developer.chrome.com/docs/ai/built-in).
 Sign up [here](https://docs.google.com/forms/d/e/1FAIpQLSfZXeiwj9KO9jMctffHPym88ln12xNWCrVkMY_u06WfSTulQg/viewform)
-
 
 
 
