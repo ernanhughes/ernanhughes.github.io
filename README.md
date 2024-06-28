@@ -3,3 +3,4 @@
 [Support Vector Machines](/SVM/index.md)  
 [How to make money as an independent AI developer](/blog/ai_developer.md)  
 [DSpy Tutorial](/blog/dspy.md)
+[Chrome AI](/blog/chrome_ai.md)
