@@ -5,3 +5,4 @@
 [DSpy Tutorial](/blog/dspy.md)  
 [Chrome AI](/blog/chrome_ai.md)
 [Loss Functions](/blog/loss_functions.md)
+[SMOTE](/blog/smote.md)
