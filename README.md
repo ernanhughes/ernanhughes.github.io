@@ -7,3 +7,7 @@
 [Loss Functions](/blog/loss_functions.md)  
 [SMOTE](/blog/smote.md)  
 [Decision Trees](/blog/decision_trees.md)  
+[bert](/blog/bert.md)  
+[GridSearchCV](/blog/gridsearchcv.md)  
+[Gradient Descent](/blog/gradient_descent.md)  
+
