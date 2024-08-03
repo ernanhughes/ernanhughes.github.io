@@ -10,6 +10,11 @@
 [bert](/blog/bert.md)  
 [GridSearchCV](/blog/gridsearchcv.md)  
 [Gradient Descent](/blog/gradient_descent.md)  
-[Fit and Transfrom](/blog/fit_and_transform.md)  
+[Fit and Transfrom](/blog/fit_and_transform.md)
+[Coefficient](/blog/coefficient.md)  
+[Intercept](/blog/intercept.md)  
+[Gini Impurity](blog/gini.md)  
+
+
 
 
