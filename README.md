@@ -13,7 +13,12 @@
 [Fit and Transfrom](/blog/fit_and_transform.md)
 [Coefficient](/blog/coefficient.md)  
 [Intercept](/blog/intercept.md)  
-[Gini Impurity](blog/gini.md)  
+[Gini Impurity](blog/gini.md)
+[Sampling](blog/sampling.md)  
+[Bagging](blog/bagging.md)  
+[Dataclass](blog/datablass.md)  
+[Scrape Data](blog/scrape_data.md)
+[Insert Data](blog/insert_data.md)
 
 
 
