@@ -17,8 +17,11 @@
 [Sampling](blog/sampling.md)  
 [Bagging](blog/bagging.md)  
 [Dataclass](blog/datablass.md)  
-[Scrape Data](blog/scrape_data.md)
-[Insert Data](blog/insert_data.md)
+[Scrape Data](blog/scrape_data.md)  
+[Insert Data](blog/insert_data.md)  
+[Install Kafka Windows](blog/install_kafka_windows.md)  
+
+
 
 
 
