@@ -20,6 +20,8 @@
 [Scrape Data](blog/scrape_data.md)  
 [Insert Data](blog/insert_data.md)  
 [Install Kafka Windows](blog/install_kafka_windows.md)  
+[Irish Election 2024](blog/schenanigans_irish_election_2024.md)  
+
 
 
 
