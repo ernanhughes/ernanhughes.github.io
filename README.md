@@ -2,6 +2,7 @@
 
 ## Blog posts
 
+[AniPortrait](blog/aniportrait.md)  
 [Live Portrait](blog/live_portrait.md)  
 [How to make money as an independent AI developer](/blog/ai_developer.md)  
 [DSpy Tutorial](/blog/dspy.md)  
