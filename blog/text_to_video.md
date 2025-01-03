@@ -195,7 +195,7 @@ display_video(video_path)
 
 ```
 
-[Colab Example](https://github.com/ernanhughes/youtube-summarizer/blob/main/Text_to_Video.ipynb)
+[Colab Example](https://github.com/ernanhughes/youtube-videos/blob/main/Text_to_Video.ipynb)
 
 
 ## Generated Video 
