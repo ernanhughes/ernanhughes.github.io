@@ -2,6 +2,7 @@
 
 ## Blog posts
 
+[hugo](blog/hugo.md)  
 [AI Auto Video Generator](blog/ai_auto_generator.md)  
 [ImageMagick](blog/imagemagick.md)  
 [Text to Video](blog/text_to_video.md)  
