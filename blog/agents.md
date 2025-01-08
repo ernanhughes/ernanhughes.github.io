@@ -1,23 +1,21 @@
 +++
 date = '2025-01-07T16:51:43Z'
 draft = true
-title = 'Agents'
+title = 'Agents: A tutorial on building agents in python'
 categories = ['AI', 'agents', 'smolagents']
 tag = ['agents'] 
 +++
 
-
-# LLM Agents
+## LLM Agents
 
 Agents are used enhance and extend the functionality of LLM's.
 
 In this tutorial, we’ll explore what LLM agents are, how they work, and how to implement them in Python. 
----
 
 ## What Are LLM Agents?
 
 An agent is an autonomous process that may use the LLM and other tools multiple times to achieve a goal. 
-The LLM output often controls the workflow of the agents.
+The LLM output often controls the workflow of the agent(s).
 
 ## What is the difference between Agents and LLMs or AI?
 
@@ -35,7 +33,7 @@ For example a customer support agent could be comprised of
 
 ### Sample applications of Agents
 
-Agents can be used anywhere some common applications include
+Agents can be used anywhere, some common applications include
 
 - Process unstructured natural language input.
 - Perform reasoning to deduce solutions or actions.
@@ -139,7 +137,7 @@ Out - Final answer: 25.41979377203755
 
 ```
 
-### 3. create an agent that will call a local ollama model
+### 3. Create an agent that will call a local ollama model
 
 In this case I wan to call a local ollama model to generate some python code.
 
@@ -168,6 +166,27 @@ agent.run(
 2. In your local ollama installation you can list the models by calling ollama list
 3. We need to pas in the api_base url in this case it is on my local machine.
 
+The result is:
+
+```
+1 import random                         
+2                                       
+3 def print_random_numbers(count):      
+4     for _ in range(count):            
+5         print(random.randint(1, 100)) 
+6                                       
+7 print_random_numbers(100)             
+
+Execution logs:
+55
+79
+94
+93
+...
+
+```
+
+
 
 ### 4. Simple web search tool
 
@@ -189,7 +208,8 @@ This will return this result.
 
 ...
 [Vladimir Putin - Wikipedia](https://en.wikipedia.org/wiki/Vladimir_Putin)
-New York City-based NGO Human Rights Watch, in a report entitled Laws of Attrition, authored by Hugh Williamson, the British director of HRW's Europe & Central Asia Division, has claimed that since May 2012, when Putin was reelected as president, Russia has enacted many restrictive laws, started inspections of non-governmental organizations ...
+New York City-based NGO Human Rights Watch, in a report entitled Laws of Attrition, authored by Hugh Williamson, the British director of HRW's Europe & Central Asia Division, has claimed that since May 2012, when Putin was reelected as president, Russia has enacted many restrictive laws, started inspections of non-governmental organizations  
+...
 
 ```
 
@@ -218,7 +238,7 @@ def agent_with_tool(prompt):
 print(agent_with_tool("search Python decorators"))
 ```
 
-### Combining tools
+### 6. Combining multiple tools to get a job done
 
 In this example I am using multiple tools to achive a task.
 
@@ -228,7 +248,7 @@ We define two tools
 - **send_request** to get the contents of a web page
 - **write_to_file** to save the data to a file
 
-In this application we want to use the model to summarize an article from a website.
+In this application we take the results of running these tools on an website page and then use the model to summarize that result.
 
 
 ```Python
@@ -290,59 +310,185 @@ Executing this code:
 ```
 
 
+### 7. Multi Agents
 
-
-### 5. Implement Memory Management
-
-To maintain context, you can add memory to your agent. A simple way is to use a list to store conversation history:
-
-```python
-conversation_history = []
-
-def agent_with_memory(prompt):
-    global conversation_history
-    conversation_history.append(prompt)
-    context = "\n".join(conversation_history)
-    response = openai.Completion.create(
-        engine="text-davinci-003",
-        prompt=context,
-        max_tokens=150
-    )
-    reply = response.choices[0].text.strip()
-    conversation_history.append(reply)
-    return reply
-
-print(agent_with_memory("What is Python?")
-print(agent_with_memory("How does it handle memory?"))
-```
-
-### 6. Advanced Features with LangChain
-
-LangChain simplifies building LLM-powered applications. Here’s an example of chaining prompts and tools:
+If we have hundreds of agents working together over a large network maybe this can scale the way corporations and human effort does.
+If LLM's start to slow down well then we can use this approach to achieve  greater goals.
+This is the aim of using multiple agents to solve problems.
 
 ```python
-from langchain.chains import LLMChain
-from langchain.prompts import PromptTemplate
-from langchain.llms import OpenAI
 
-llm = OpenAI(model_name="text-davinci-003")
-prompt = PromptTemplate(template="Answer the following: {question}", input_variables=["question"])
-chain = LLMChain(llm=llm, prompt=prompt)
+import re
+import requests
+from markdownify import markdownify
+from requests.exceptions import RequestException
+from smolagents import tool
 
-print(chain.run("Explain Python generators"))
+
+@tool
+def visit_webpage(url: str) -> str:
+    """Visits a webpage at the given URL and returns its content as a markdown string.
+
+    Args:
+        url: The URL of the webpage to visit.
+
+    Returns:
+        The content of the webpage converted to Markdown, or an error message if the request fails.
+    """
+    try:
+        # Send a GET request to the URL
+        response = requests.get(url)
+        response.raise_for_status()  # Raise an exception for bad status codes
+
+        # Convert the HTML content to Markdown
+        markdown_content = markdownify(response.text).strip()
+
+        # Remove multiple line breaks
+        markdown_content = re.sub(r"\n{3,}", "\n\n", markdown_content)
+
+        return markdown_content
+
+    except RequestException as e:
+        return f"Error fetching the webpage: {str(e)}"
+    except Exception as e:
+        return f"An unexpected error occurred: {str(e)}"
+
+
+print(visit_webpage("https://en.wikipedia.org/wiki/Hugging_Face")[:500])
+
 ```
 
----
+The result here is:
+
+```
+Hugging Face - Wikipedia
+
+[Jump to content](#bodyContent)
+
+Main menu
+...
+```
+
+We now use this tool to build our multi agent system
+
+```Python
+from smolagents import (
+    CodeAgent,
+    ToolCallingAgent,
+    HfApiModel,
+    ManagedAgent,
+    DuckDuckGoSearchTool,
+    LiteLLMModel,
+)
+
+model = LiteLLMModel(
+    model_id="ollama/qwen2.5:latest",
+    api_base="http://localhost:11434"
+)
+
+web_agent = ToolCallingAgent(
+    tools=[DuckDuckGoSearchTool(), visit_webpage],
+    model=model,
+    max_steps=10,
+)
+
+# wrap this agent into a manged agent
+managed_web_agent = ManagedAgent(
+    agent=web_agent,
+    name="search",
+    description="Runs web searches for you. Give it your query as an argument.",
+)
+
+```
+
+Finally we create a manager agent and pass our managed agent to it in its managed_agents argument  
+
+```Python
+manager_agent = CodeAgent(
+    tools=[],
+    model=model,
+    managed_agents=[managed_web_agent],
+    additional_authorized_imports=["time", "numpy", "pandas"],
+)
+```
+
+Lets test it out:
+
+```Python
+answer = manager_agent.run("When did Ireland gain independence from Britain")
+```
+
+
+```
+Final answer: ### 1. Task outcome (short version):
+Ireland gained independence from Britain in stages through a process involving both legislative and military efforts.
+
+### 2. Task outcome (extremely detailed version):
+The process of Ireland gaining independence from Britain involved several key events and phases:
+
+- **Home Rule Act 1914**: This act was intended to grant Home Rule to Ireland, allowing it greater self-governance within the United Kingdom. However, its implementation was delayed due to the 
+outbreak of World War I.
+  
+- **Anglo-Irish Treaty 1921**: Signed in December 1921 between representatives of the British government and Sinn Féin, this treaty established an Irish Free State (later known as Ireland) under the 
+Crown. It granted significant self-governance to most of Ireland while Northern Ireland opted out.
+  
+- **Irish Independence Act 1922**: Enacted in July 1922, this act formally separated the Irish Free State from the United Kingdom, though it retained certain ties with Britain.
+
+- **Proclamation of the Republic (1948)**: In April 1948, Ireland officially declared itself a republic and withdrew its remaining connection to the British Crown, effectively completing its 
+independence process. The Republic of Ireland Act was passed on April 18, 1948.
+
+### 3. Additional context:
+The transition from British rule to full Irish independence involved complex political dynamics, including the Irish War of Independence (1919-1921) and subsequent civil war in Ireland (1922). The 
+Treaty of 1921 established a form of shared sovereignty between the Crown and the Free State, which was later fully resolved by declaring a republic.
+
+### Additional Prompting:
+For a deeper understanding, consider exploring the specific events leading up to each agreement or treaty, the roles of key political figures like Éamon de Valera and Winston Churchill, and the social
+and economic conditions that influenced Ireland's pursuit of independence.
+
+```
 
 ## Best Practices for Building LLM Agents
 
+- **Version your changes**: You need a rigid structure for making changes to your application. Some form of [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow). If you do not have a consistent development and change tracking process you could find that you loose literally man years of work.
 - **Optimize Prompts**: Experiment with prompt phrasing to improve accuracy.
+- **Use open models**: 
+    - Where possible use Ollama. 
+    - Its free and for most tasks it will be competitive with the paid models. 
+    - You can offload some of the work or some of the agents to Ollama. 
+    - Always design your application so that this can be configured on/off.
+    - Split your functionality into discrete tasks it wil allow for mixing and matching between the open and paid versions.
+    - There are always new open models being release that often are better than the psid versions at specific tasks. 
+- **Track your expenses**: If using a paid model make it really obvious what each call or agent is costing. I suggest adding a report with a per service/agent price generated every hour with a graph and comparison over time.
 - **Limit Token Usage**: Use concise prompts and responses to manage costs.
 - **Use Fine-Tuning**: For domain-specific tasks, fine-tune the model on your data.
 - **Implement Logging**: Log inputs, outputs, and errors for debugging and analysis.
+- **Configure and track**: Make everything models used, agents, memory server a config option and dump this configuration at the beginning of each run. When things go astray you can compare teh configs to see what has gone has changed.
 - **Secure APIs**: Protect your API keys and implement rate limiting.
+- **Escape the Jupyter Labyrinth**: Jupyter notebooks are awesome they allow researchers engineers and managers to collaborate and work together on ideas and immediately see and share the results. This can lead to a massive spaghetti solution comprising lots of notebooks. You want to avoid this.
+---
+
+
+### 8. Advanced applications of Agents
+
+AI Agents are currently the **state of the art** SOTA in LLM development.
+If we do not get massive improvements in LLMs this year by using agents we may be able to achieve a similar outcome.
+
+These papers show how agents can improve teh performance of LLMs
+
+1. **Self-Improvement in Web Agent Tasks**  
+   - Research showing a **31% increase** in task completion rates on the WebArena benchmark through self-improvement:  
+   [Read the paper](https://arxiv.org/abs/2405.20309)
+
+2. **Dynamic LLM-Agent Networks (DyLAN)**  
+   - Achieved a **13.0% improvement** on the MATH dataset, a **13.3% improvement** on the HumanEval benchmark, and up to a **25.0% increase** on specific MMLU tasks:  
+   [Read the paper](https://arxiv.org/abs/2310.02170)
+
+3. **Enhanced Resume Screening with LLM Agents**  
+   - Demonstrated an **11x faster process** and significant improvements in performance metrics for automated resume screening:  
+   [Read the paper](https://arxiv.org/abs/2401.08315)
 
 ---
+
 
 ## Real-World Applications
 
@@ -352,12 +498,20 @@ LLM agents can power:
 - **Data Analysis Assistants**: Query databases or analyze datasets via natural language.
 - **Code Review Tools**: Provide feedback on code snippets or suggest improvements.
 - **Autonomous Agents**: Perform multi-step workflows, such as booking appointments or managing emails.
+- **YouTube Filter Tools**: You build an agents to filter the content to just what you are interested in and then summarize those videos ot save time. 
+- **Job Search Tools**: You can build agents to automate the process of looking for jobs. 
+- **Personalized Recommendations**: You can track yourself and what you like and would want to buy privately, look out for bargains and get notified of the best deals at the bes time to buy.
 
 ---
 
-## Conclusion
+## Resources
 
-LLM agents offer unparalleled flexibility and intelligence, enabling Python developers to build smarter, more interactive applications. By leveraging tools like OpenAI, LangChain, or LlamaIndex, you can craft agents that transform user interactions into dynamic, context-aware experiences.
+-[smolagents](https://huggingface.co/docs/smolagents/index)
+This is a new library from [huggingface](https://huggingface.co/). It is where I would start building agents. Its new, works with local models supports running code.
 
-Ready to start building? Explore the documentation for [OpenAI](https://platform.openai.com/docs/), [LangChain](https://docs.langchain.com/), and [LlamaIndex](https://gpt-index.readthedocs.io/) to unlock the full potential of LLM agents in your projects.
+-[langraph](https://github.com/langchain-ai/langgraph)
+These guys have a massive amount of tools with lots of tutorials. I will do another blog post on these guys.
+
+-[llamaindex](https://github.com/run-llama/llama_index)
+More focussed on data management. They have lots of cool tools and tutorial online.
 

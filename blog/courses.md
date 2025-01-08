@@ -1,7 +1,7 @@
 +++
 date = '2025-01-07T16:11:41Z'
 draft = true
-title = 'Courses'
+title = 'Courses: Free course on Agentic AI'
 categories = ['AI', 'agents', 'courses']
 tag = ['learning'] 
 +++
