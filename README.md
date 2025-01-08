@@ -1,8 +1,9 @@
 # A collection of writings that AI helped generate
 
 ## Blog posts
-
-[hugo](blog/hugo.md)  
+[agents.md](blog/agents.md)
+[Ollama tutorial](blog/ollama.md)
+[hugo.md](blog/hugo.md)
 [AI Auto Video Generator](blog/ai_auto_generator.md)  
 [ImageMagick](blog/imagemagick.md)  
 [Text to Video](blog/text_to_video.md)  
@@ -27,6 +28,22 @@
 [Scrape Data](blog/scrape_data.md)   
 [Insert Data](blog/insert_data.md)   
 [Install Kafka Windows](blog/install_kafka_windows.md)  
+[acdb.md](blog/acdb.md)
+[android_settings.md](blog/android_settings.md)
+[blog_tools.md](blog/blog_tools.md)
+[catcher.md](blog/catcher.md)
+[courses.md](blog/courses.md)
+[dictator.md](blog/dictator.md)
+[everything.md](blog/everything.md)
+[fileexplorer.md](blog/fileexplorer.md)
+[fx-trader.md](blog/fx-trader.md)
+[image_script.md](blog/image_script.md)
+[java-arm.md](blog/java-arm.md)
+[meth.md](blog/meth.md)
+[simple_log.md](blog/simple_log.md)
+[site_shot.md](blog/site_shot.md)
+[tinycore.md](blog/tinycore.md)
+[validator.md](blog/validator.md)
 
 
 
