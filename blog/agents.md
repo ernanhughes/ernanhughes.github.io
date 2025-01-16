@@ -515,3 +515,8 @@ These guys have a massive amount of tools with lots of tutorials. I will do anot
 -[llamaindex](https://github.com/run-llama/llama_index)
 More focussed on data management. They have lots of cool tools and tutorial online.
 
+## Code examples
+
+You can find example notebooks here:
+
+[Agents](https://github.com/ernanhughes/agents)

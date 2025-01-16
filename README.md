@@ -1,6 +1,9 @@
 # A collection of writings that AI helped generate
 
 ## Blog posts
+[rag.md](blog/rag.md)
+[cag.md](blog/cag.md)
+[courses.md](blog/courses.md)
 [agents.md](blog/agents.md)
 [Ollama tutorial](blog/ollama.md)
 [hugo.md](blog/hugo.md)

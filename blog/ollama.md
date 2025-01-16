@@ -489,3 +489,9 @@ Wrap your application in a Docker container alongside Ollama for portable deploy
 
 ---
 
+
+## Code examples
+
+[Ollama notebooks](https://github.com/ernanhughes/ollama-notebooks)
+
+has some example code for using Ollama.
