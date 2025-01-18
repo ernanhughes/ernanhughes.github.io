@@ -1,7 +1,8 @@
 +++
 date = '2025-01-14T14:40:59Z'
-draft = true
 title = 'Rag: Retrieval-Augmented Generation '
+categories = ['AI', 'RAG', 'smolagents']
+tag = ['rag'] 
 +++
 
 ## **Summary**

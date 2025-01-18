@@ -1,12 +1,15 @@
 # A collection of writings that AI helped generate
 
 ## Blog posts
-[rag.md](blog/rag.md)
-[cag.md](blog/cag.md)
-[courses.md](blog/courses.md)
-[agents.md](blog/agents.md)
-[Ollama tutorial](blog/ollama.md)
-[hugo.md](blog/hugo.md)
+[Machine Learing Questions and Answers with Python examples](blog/questions.md)  
+[Cellular Automata: Custom Rules ](blog/ca1.md)  
+[Cellular Automata: Introduction](blog/ca.md)  
+[RAG: Retrieval Agumented Generation ](blog/rag.md)  
+[CAG Cache Agumented Generation](blog/cag.md)  
+[courses.md](blog/courses.md)  
+[agents.md](blog/agents.md)  
+[Ollama tutorial](blog/ollama.md)  
+[hugo.md](blog/hugo.md)  
 [AI Auto Video Generator](blog/ai_auto_generator.md)  
 [ImageMagick](blog/imagemagick.md)  
 [Text to Video](blog/text_to_video.md)  
