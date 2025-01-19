@@ -1,7 +1,9 @@
 # A collection of writings that AI helped generate
 
 ## Blog posts
-[Machine Learing Questions and Answers with Python examples](blog/questions.md)  
+[Cellular Automata: Traffic Flow Simulation using the Nagel-Schreckenberg Model ](blog/traffic.md)  
+[Cellular Automata: Simulate Gastropod Shell Growth Using Cellular Automata ](blog/shell.md)  
+[43 Machine Learing Questions and Answers with Python examples](blog/questions.md)  
 [Cellular Automata: Custom Rules ](blog/ca1.md)  
 [Cellular Automata: Introduction](blog/ca.md)  
 [RAG: Retrieval Agumented Generation ](blog/rag.md)  
